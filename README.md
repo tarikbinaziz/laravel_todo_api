@@ -299,3 +299,99 @@ mysql>
 Exit:
 
 exit;
+
+
+
+
+Now we finish MySQL + Laravel connection step by step.
+You’re doing great 💪
+
+✅ Step 1: Login to MySQL
+
+Run:
+
+mysql -u root -p
+
+
+Enter the password you set.
+
+If you see:
+
+mysql>
+
+
+✅ Logged in successfully
+
+🗄 Step 2: Create Database
+
+Inside MySQL shell, run:
+
+CREATE DATABASE todo_db;
+SHOW DATABASES;
+
+
+Make sure todo_db is listed.
+
+Exit MySQL:
+
+exit;
+
+⚙️ Step 3: Update Laravel .env
+
+Open .env file and set exactly this:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=todo_db
+DB_USERNAME=root
+DB_PASSWORD=YOUR_PASSWORD_HERE
+
+
+⚠️ Replace YOUR_PASSWORD_HERE with your real MySQL password.
+
+🔄 Step 4: Clear Laravel cache (DON’T SKIP)
+php artisan config:clear
+php artisan cache:clear
+
+
+Why?
+
+Laravel caches .env values
+
+🧱 Step 5: Run Migration
+
+Since SQLite tables may exist, reset:
+
+php artisan migrate:fresh
+
+
+Expected output:
+
+Dropped all tables
+Migrated: create_todos_table
+
+
+✅ Table created in MySQL
+
+🧪 Step 6: Test API
+
+Start server:
+
+php artisan serve
+
+
+Test in browser or Postman:
+
+GET http://127.0.0.1:8000/api/todos
+
+
+Expected response:
+
+{
+  "success": true,
+  "data": []
+}
+
+
+🎉 Laravel + MySQL + Todo API is working
