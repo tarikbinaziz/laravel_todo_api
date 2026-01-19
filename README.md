@@ -202,3 +202,100 @@ GET http://127.0.0.1:8000/api/todos
 brew services start mysql
 brew services stop mysql
 brew services restart mysql
+
+
+
+You are seeing this question:
+
+Would you like to setup VALIDATE PASSWORD component?
+
+✅ What should YOU choose (beginner-friendly)
+
+👉 Type:
+
+n
+
+
+then press Enter
+
+Why?
+
+This is just password-strength checking
+
+Not required for local development
+
+Can cause unnecessary password errors for beginners
+
+You can enable it later if needed.
+
+🔁 What happens next (expected questions & answers)
+
+After typing n, you’ll see several questions.
+Here are the correct answers for local development:
+
+🔐 Set root password
+New password:
+Re-enter new password:
+
+
+👉 Enter a simple but memorable password
+(example: root1234 or mysql123)
+
+Remove anonymous users?
+Remove anonymous users? (Press y|Y for Yes, any other key for No)
+
+
+👉 Type:
+
+y
+
+Disallow root login remotely?
+Disallow root login remotely?
+
+
+👉 Type:
+
+y
+
+Remove test database and access to it?
+Remove test database and access to it?
+
+
+👉 Type:
+
+y
+
+Reload privilege tables now?
+Reload privilege tables now?
+
+
+👉 Type:
+
+y
+
+✅ When finished you’ll see something like:
+All done!
+Thanks for using MySQL!
+
+
+🎉 MySQL is now secured and ready
+
+🧪 NEXT: Confirm MySQL login works
+
+Run:
+
+mysql -u root -p
+
+
+Enter the password you just set.
+
+If you see:
+
+mysql>
+
+
+✅ Success
+
+Exit:
+
+exit;
