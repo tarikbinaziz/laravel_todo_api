@@ -16,4 +16,7 @@ class TodoController extends Controller
             'data' => Todo::all(),
         ]);
     }
+
+    // POST /api/todos
+    public function store(Request $request){}
 }
