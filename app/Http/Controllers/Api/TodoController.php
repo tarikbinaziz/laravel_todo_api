@@ -18,5 +18,23 @@ class TodoController extends Controller
     }
 
     // POST /api/todos
-    public function store(Request $request){}
+    public function store(Request $request)
+    {
+        // 1️⃣ Validate input
+        $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        // 2️⃣ Create todo in database
+        $todo = Todo::create([
+            'title' => $request->title,
+        ]);
+
+        // 3️⃣ Return JSON response
+        return response()->json([
+            'success' => true,
+            'message' => 'Todo created successfully',
+            'data' => $todo,
+        ], 201);
+    }
 }
